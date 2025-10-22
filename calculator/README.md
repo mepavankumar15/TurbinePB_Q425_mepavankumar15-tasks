@@ -8,7 +8,7 @@ with the program ensuring the calculations are processed and the new result is s
 
 
 ## Architectural Diagram
-![Alt text for the image](path/to/your/image.png)
+![Alt text for the image](calculator/architectural-diagram.png)
 
 
 
