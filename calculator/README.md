@@ -8,7 +8,8 @@ with the program ensuring the calculations are processed and the new result is s
 
 
 ## Architectural Diagram
-![Alt text for the image](calculator/architectural-diagram.png)
+<img width="918" height="607" alt="architectural-diagram" src="https://github.com/user-attachments/assets/fa5a3661-479c-4323-a344-888ffe0e2642" />
+
 
 
 
