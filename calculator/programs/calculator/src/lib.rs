@@ -5,19 +5,20 @@ declare_id!("8DYfoJLEghPutbU8fWN3e29D1UYb7pE1xkdXAEUbU4AP");
 #[program]
 pub mod calculator {
     use super::*;
-
-    pub fn initialize(ctx: Context<Initialize>, init_value: u32) -> Result<()> {
+    // the Initialize function
+    pub fn initialize(ctx: Context<Initialize> , init_value: u32) -> Result<()> {
         ctx.accounts.account.num = init_value;
         Ok(())
     }
-
-    pub fn double(ctx: Context<Double>) -> Result<()> {
-        ctx.accounts.account.num = ctx.accounts.account.num * 2;
+    // the Double funtion
+    pub fn double(ctx: Context<Double>)-> Result<()>{
+        ctx.accounts.account.num = ctx.accounts.account.num *2;
         Ok(())
     }
 
-    pub fn add(ctx: Context<Add>, num: u32) -> Result<()> {
-        ctx.accounts.account.num = ctx.accounts.account.num + num;
+    // the Increment/Add function
+    pub fn add(ctx : Context<Add> , num: u32)-> Result<()>{
+        ctx.accounts.account.num = ctx.accounts.account.num +num;
         Ok(())
     }
 }
@@ -27,6 +28,7 @@ pub struct DataShape {
     pub num: u32,
 }
 
+// Initialization Struct
 #[derive(Accounts)]
 pub struct Initialize<'info> {
     #[account(init , payer = signer, space= 8+4)]
@@ -36,6 +38,7 @@ pub struct Initialize<'info> {
     signer: Signer<'info>,
 }
 
+// the Double Struct
 #[derive(Accounts)]
 pub struct Double<'info> {
     #[account(mut)]
@@ -44,6 +47,7 @@ pub struct Double<'info> {
     signer: Signer<'info>,
 }
 
+// the Increment/Add Struct
 #[derive(Accounts)]
 pub struct Add<'info> {
     #[account(mut)]
