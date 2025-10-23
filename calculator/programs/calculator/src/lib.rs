@@ -21,37 +21,37 @@ pub mod calculator {
         ctx.accounts.account.num = ctx.accounts.account.num +num;
         Ok(())
     }
-
 }
 
-pub struct DataShape{
-    pub num : u32
+#[account]
+pub struct DataShape {
+    pub num: u32,
 }
 
 // Initialization Struct
 #[derive(Accounts)]
-pub struct Initialize<'info>{
+pub struct Initialize<'info> {
     #[account(init , payer = signer, space= 8+4)]
-    pub account: Account<'info ,DataShape>,
-    pub system_program : Program<'info, System>,
+    pub account: Account<'info, DataShape>,
+    pub system_program: Program<'info, System>,
     #[account(mut)]
-    signer : Signer<'info>
+    signer: Signer<'info>,
 }
 
 // the Double Struct
 #[derive(Accounts)]
-pub struct Double<'info>{
+pub struct Double<'info> {
     #[account(mut)]
-    pub account: Account<'info ,DataShape>,
+    pub account: Account<'info, DataShape>,
     #[account(mut)]
-    signer : Signer<'info>
+    signer: Signer<'info>,
 }
 
 // the Increment/Add Struct
 #[derive(Accounts)]
-pub struct Add<'info>{
+pub struct Add<'info> {
     #[account(mut)]
-    pub account: Account<'info ,DataShape>,
+    pub account: Account<'info, DataShape>,
     #[account(mut)]
-    signer : Signer<'info>
+    signer: Signer<'info>,
 }
